@@ -70,7 +70,7 @@ This will start the PostgreSQL database on port 5433 and MongoDB on port 27017.
 
 ### 4. Configure Environment Variables
 
-Create a .env file in the root of the project and add the following configuration:
+The .env file is already present in the root of the project. Ensure it contains the following configuration:
 
 ```bash
 PORT=3000
@@ -104,7 +104,7 @@ npm start
 Once the server is running, you can access the Swagger UI for API documentation by navigating to:
 
 ```bash
-http://localhost:3000/api-docs
+http://localhost:3000/api
 ```
 
 ## Working with the Database

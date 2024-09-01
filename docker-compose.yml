@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:16
+    container_name: booksharing_postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: booksharing
+    ports:
+      - "5433:5432" # Mapping port 5432 in the container to 5433 on the host
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - booksharing_network
+
+  mongo:
+    image: mongo:latest
+    container_name: booksharing_mongo
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+    ports:
+      - "27017:27017" # MongoDB default port
+    volumes:
+      - mongo_data:/data/db
+    networks:
+      - booksharing_network
+
+volumes:
+  postgres_data:
+  mongo_data:
+
+
+networks:
+  booksharing_network:
+    driver: bridge
